@@ -1,0 +1,41 @@
+{
+  "name": "@ap.cx/react-scrollama-wrapper",
+  "version": "2.0.0",
+  "description": "react scrollama wrapper",
+  "main": "lib/index.js",
+  "module": "lib/index.module.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run build",
+    "predeploy": "cd ./example && npm install && npm run export",
+    "deploy": "touch ./example/out/.nojekyll && gh-pages -d ./example/out -t true",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thierryc",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "scrollama": "^2.2.3"
+  },
+  "peerDependencies": {
+    "react": "17.x || 18.x",
+    "react-dom": "17.x || 18.x",
+    "scrollama": "2.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "gh-pages": "^3.2.3",
+    "rollup": "^2.59.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4"
+  }
+}
