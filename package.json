@@ -14,7 +14,8 @@
     "prepublishOnly": "npm run build",
     "predeploy": "cd ./example && npm install && npm run export",
     "deploy": "touch ./example/out/.nojekyll && gh-pages -d ./example/out -t true",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "link": "npm run build && npm link && cd ./example && npm link @ap.cx/react-scrollama-wrapper"
   },
   "author": "thierryc",
   "license": "MIT",
@@ -26,7 +27,7 @@
   "peerDependencies": {
     "react": "17.x || 18.x",
     "react-dom": "17.x || 18.x",
-    "scrollama": "2.x"
+    "scrollama": "3.x"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
