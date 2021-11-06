@@ -28,7 +28,6 @@ The version are not stritly aligned with each other. The only way to know which 
 npm install @ap.cx/react-scrollama-wrapper
 ```
 
-
 ## Usage
 
 ```js
@@ -152,12 +151,21 @@ The argument of the callback is an object: `{ element: DOMElement, index: number
 
  ### Alternatives
 
+- [react-scrolly](https://github.com/garfieldduck/react-scrolly)
 - [Scrollama](https://github.com/russellgoldenberg/scrollama)
 - [Waypoints](http://imakewebthings.com/waypoints/)
 - [ScrollMagic](http://scrollmagic.io/)
 - [graph-scroll.js](https://1wheel.github.io/graph-scroll/)
 - [ScrollStory](https://sjwilliams.github.io/scrollstory/)
 - [enter-view](https://github.com/russellgoldenberg/enter-view)
+
+
+## Design scrolly-telling
+
+Here are some references to help you design better scrolly-telling:
+
+- [How To Scroll](https://bost.ocks.org/mike/scroll/) by Mike Bostock
+- [Responsive scrollytelling best practices](https://pudding.cool/process/responsive-scrollytelling/) (The Pudding)
 
 ### License
 
