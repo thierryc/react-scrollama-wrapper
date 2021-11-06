@@ -139,6 +139,12 @@ The argument of the callback is an object: `{ element: DOMElement, index: number
 `index`: The index of the step of all steps
 
 `progress`: The percent of completion of the step (0 - 1)
+
+### Dependencies (3)
+
+- react 17.0.0 || 18.0.0
+- react-dom 17.0.0 || 18.0.0
+- scrollama ^3.0.1
  
  ### A wrapper for Scrollama
  
