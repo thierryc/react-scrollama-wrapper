@@ -167,6 +167,14 @@ Here are some references to help you design better scrolly-telling:
 - [How To Scroll](https://bost.ocks.org/mike/scroll/) by Mike Bostock
 - [Responsive scrollytelling best practices](https://pudding.cool/process/responsive-scrollytelling/) (The Pudding)
 
+
+## IntersectionObserver polyfill
+
+You must include the [IntersectionObserver polyfill](https://github.com/w3c/IntersectionObserver) yourself for cross-browser support.
+Check on [caniuse (intersectionobserver)](https://caniuse.com/#feat=intersectionobserver) to see if you need to include the polyfill.
+
+[IntersectionObserver library polyfills](https://github.com/w3c/IntersectionObserver) is the native IntersectionObserver API in unsupporting browsers. See the API documentation for usage information.
+
 ### License
 
 Like the orginal the @ap.cx/react-scrollama-wrapper is licensed under the MIT license
