@@ -35,10 +35,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main
-        className={styles.main}
-        style={{ "--progress": Math.round((progress * 1000) / 10) + "%" }}
-      >
+      <main className={styles.main} style={{'--progress': Math.round((progress * 1000) / 10) + '%'}}>
         <Scrollama
           className={styles.scrolly}
           offset={0.33}
@@ -66,11 +63,7 @@ export default function Home() {
               </p>
             </a>
           </Step>
-          <Step 
-            className={styles.step} 
-            style={{ minHeight: "80vh" }}
-            data-step-name={"onStepEnter"}
-          >
+          <Step className={styles.step} style={{ minHeight: "80vh" }}>
             <a href="https://www.anotherplanet.io">
               <h2>onStepEnter &rarr;</h2>
               <p>
@@ -82,7 +75,7 @@ export default function Home() {
           <Step
             className={styles.step}
             style={{ minHeight: "130vh" }}
-            data-step-name={"onStepExit"}
+            data-step-name={"onStepEnter"}
           >
             <a href="https://www.anotherplanet.io">
               <h2>onStepExit &rarr;</h2>
@@ -114,7 +107,7 @@ export default function Home() {
                 Every props set to the step is sent to the scrollama component
                 and can be used in the srollyteling.
               </p>
-              <p>Like data for D3js, image, url, mapbox lat/lng…</p>
+              <p>Like data for datavise, image url, …</p>
             </a>
           </Step>
 
@@ -134,18 +127,17 @@ export default function Home() {
             Welcome to <br />
             React Scrollama Wrapper
           </h1>
-          {progress !== null && (
-            <div className={styles.progress}>
-              <div className={styles.counter}>{Math.round((progress * 1000) / 10)}</div>
-              <div className={styles.counterInfo}>
-                <div className={styles.unit}>%</div>
-                <div className={[styles.arrow, step.direction === 'up' ? styles.up : null].join(' ')}>&darr;</div>
-              </div> 
-              
+          {step && (
+            <div>
+              step {step.index} entered from {step.direction}
             </div>
           )}
+          {progress !== null && (
+            <div>progress: {Math.round((progress * 1000) / 10)}</div>
+          )}
+          {direction && <div>direction: {direction}</div>}
           <h3>Data</h3>
-          {message && <pre><code>{message}</code></pre>}
+          {message && <pre>{message}</pre>}
         </div>
       </main>
     </div>

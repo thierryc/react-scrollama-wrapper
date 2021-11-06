@@ -15,7 +15,7 @@
     "predeploy": "cd ./gh-pages && npm install && npm run export",
     "deploy": "touch ./gh-pages/out/.nojekyll && gh-pages -d ./gh-pages/out -t true",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "link": "npm run build && npm link && cd ./example && npm link @ap.cx/react-scrollama-wrapper"
+    "link": "npm run build && npm link && cd ./gh-pages && npm link @ap.cx/react-scrollama-wrapper"
   },
   "author": "thierryc",
   "license": "MIT",

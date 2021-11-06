@@ -26,6 +26,9 @@ class Scrollama extends React.Component {
       onStepEnter = () => {},
       onStepExit = () => {},
       onStepProgress = () => {},
+      threshold = 4,
+      once = false,
+      parent = undefined
     } = this.props
 
     this.scroller
@@ -34,6 +37,9 @@ class Scrollama extends React.Component {
         offset,
         progress,
         debug,
+        threshold,
+        once,
+        parent,
       })
       .onStepEnter((response) => {
         onStepEnter(response)
@@ -53,9 +59,9 @@ class Scrollama extends React.Component {
   }
 
   render() {
-    const { children, style = {}, className = '' } = this.props
+    const { children, style = {}, className = '', ...restProps } = this.props
     return (
-      <div style={style} className={className}>
+      <div style={style} className={className} {...restProps}>
         <ScrollamaContext.Provider value={(ref) => this.setupRef(ref)}>
           {children}
         </ScrollamaContext.Provider>

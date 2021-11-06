@@ -67,11 +67,60 @@
   font-size: 5vw;
   text-decoration: none;
   background: #0070f3;
-  background: -webkit-linear-gradient(to right, #121FCF 0%, #CF1512 100%);
-  background: -moz-linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+  background: -webkit-linear-gradient(to right, #0070f3 0%, #92c3fa 100%);
+  background: -moz-linear-gradient(to right, #0070f3 0%, #92c3fa 100%);
   background: linear-gradient(to right, #0070f3 0%, #92c3fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.counter {
+  min-width: 22vw;
+  text-align: right;
+  color: #0070f3;
+  margin: 0;
+  line-height: 1.15;
+  font-size: 12vw;
+  line-height: 1;
+  font-weight: bold;
+  text-decoration: none;
+  background: #0070f3;
+  background: -webkit-linear-gradient(to right, #0070f3 0%, #92c3fa 100%);
+  background: -moz-linear-gradient(to right, #0070f3 0%, #92c3fa 100%);
+  background: linear-gradient(to right, #0070f3 0%, #92c3fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.counterInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 4.8vw;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+}
+
+.counterInfo .unit {
+  color: #92c3fa;
+}
+
+.arrow {
+  color: #92c3fa;
+  transform: rotate(0);
+  transition: transform 150ms ease;
+}
+
+.up {
+  transform: rotate(-180deg);
 }
 
 .code {
