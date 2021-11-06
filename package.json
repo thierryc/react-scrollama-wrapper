@@ -1,6 +1,6 @@
 {
   "name": "@ap.cx/react-scrollama-wrapper",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": false,
   "description": "react scrollama wrapper",
   "main": "lib/index.js",
@@ -12,9 +12,10 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "prepublishOnly": "npm run build",
-    "predeploy": "cd ./example && npm install && npm run export",
-    "deploy": "touch ./example/out/.nojekyll && gh-pages -d ./example/out -t true",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "cd ./gh-pages && npm install && npm run export",
+    "deploy": "touch ./gh-pages/out/.nojekyll && gh-pages -d ./gh-pages/out -t true",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "link": "npm run build && npm link && cd ./example && npm link @ap.cx/react-scrollama-wrapper"
   },
   "author": "thierryc",
   "license": "MIT",
@@ -26,7 +27,7 @@
   "peerDependencies": {
     "react": "17.x || 18.x",
     "react-dom": "17.x || 18.x",
-    "scrollama": "2.x"
+    "scrollama": "3.x"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
