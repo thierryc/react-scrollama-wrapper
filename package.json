@@ -14,6 +14,7 @@
     "prepublishOnly": "npm run build",
     "predeploy": "cd ./example && npm install && npm run export",
     "deploy": "touch ./example/out/.nojekyll && gh-pages -d ./example/out -t true",
+    "commit:example": "git add example/ && git commit -m \"Commit example\" && git subtree push --prefix example origin example",
     "test": "echo \"Error: no test specified\" && exit 1",
     "link": "npm run build && npm link && cd ./example && npm link @ap.cx/react-scrollama-wrapper"
   },
