@@ -1,0 +1,22 @@
+{
+  "name": "react-scrollama-wrapper-example",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "NODE_ENV=production next build && NODE_ENV=production next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ap.cx/react-scrollama-wrapper": "^2.0.0",
+    "next": "^12.0.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-define": "^2.0.1",
+    "eslint": "7",
+    "eslint-config-next": "^12.0.3"
+  }
+}
