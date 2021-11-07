@@ -1,0 +1,1 @@
+declare module '@ap.cx/react-scrollama-wrapper';

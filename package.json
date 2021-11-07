@@ -5,6 +5,7 @@
   "description": "react scrollama wrapper",
   "main": "lib/index.js",
   "module": "lib/index.module.js",
+  "types": "index.d.ts",
   "directories": {
     "example": "example"
   },
