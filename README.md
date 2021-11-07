@@ -1,8 +1,10 @@
 # react-scrollama-wrapper
 
-React Scrollama Wrapper is an **easy way** to use the greate scrollytelling using **React** and IntersectionObserver **Scrollama** javscript lib.
+React Scrollama Wrapper is a **easy way** to use the great scrollytelling using **React** and IntersectionObserver **Scrollama** JavaScript lib.
 
 This project is at an early stage of development, so there are some bugs and some features are not implemented yet.
+
+It is a **React** component, so you can use it in your own project.
 
 I need help to test it and improve it, please send me a pull request.
 
@@ -19,6 +21,8 @@ The @ap.cx/react-scrollama-wrapper package is a wrapper for the scrollama librar
 The version 3.x.x of the @ap.cx/react-scrollama-wrapper package is build over the 3.x.x version of the scrollama library.
 
 The version 2.x.x of the @ap.cx/react-scrollama-wrapper package is build over the 2.x.x version of the scrollama library.
+
+The version 2.x.x is not supported anymore.
 
 The version are not stritly aligned with each other. The only way to know which version of the scrollama library is used is to check the version of the @ap.cx/react-scrollama-wrapper package.
 
