@@ -7,7 +7,7 @@ export default function Home() {
   const [step, setStep] = React.useState(null)
   const [progress, setProgress] = React.useState(null)
   const [direction, setDirection] = React.useState(null)
-  const [message, setMessage] = React.useState("")
+  const [message, setMessage] = React.useState('')
 
   const onStepEnter = (step) => {
     /* add your logic here */
@@ -15,10 +15,14 @@ export default function Home() {
     setMessage(JSON.stringify(element.dataset, null, 2))
     setDirection(direction)
     setStep(step)
+    element.classList.add(styles.active);
   }
 
   const onStepExit = (step) => {
     /* add your logic here */
+    const { element } = step
+    console.log('onStepExit', element);
+    element.classList.remove(styles.active);
   }
 
   const onStepProgress = (step) => {

@@ -57,6 +57,13 @@
   background: #fafafa;
   border-radius: 1rem;
   padding: 1rem;
+  transition: background 500ms ease;
+}
+
+.active {
+  background: #92c3fa;
+  border: 1px solid #eaeaea;
+  color: #000;
 }
 
 .title {
