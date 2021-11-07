@@ -1,6 +1,6 @@
 {
   "name": "@ap.cx/react-scrollama-wrapper",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": false,
   "description": "react scrollama wrapper",
   "main": "lib/index.js",
