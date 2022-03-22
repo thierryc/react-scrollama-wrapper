@@ -140,7 +140,7 @@ export default function Home() {
           </h1>
           {progress !== null && (
             <div className={styles.progress}>
-              <div className={styles.counter}>{Math.round((progress * 1000) / 10)}</div>
+              <div className={styles.counter}>{ Math.round((progress * 1000) / 10) }</div>
               <div className={styles.counterInfo}>
                 <div className={styles.unit}>%</div>
                 <div className={[styles.arrow, step.direction === 'up' ? styles.up : null].join(' ')}>&darr;</div>

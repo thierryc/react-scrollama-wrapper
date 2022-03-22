@@ -89,7 +89,7 @@
 }
 
 .counter {
-  min-width: 22vw;
+  min-width: 24vw;
   text-align: right;
   color: #0070f3;
   margin: 0;
@@ -104,6 +104,7 @@
   background: linear-gradient(to right, #0070f3 0%, #92c3fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-variant-numeric: tabular-nums;
 }
 
 .counterInfo {

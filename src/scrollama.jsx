@@ -35,8 +35,8 @@ class Scrollama extends React.Component {
       .setup({
         step: this.steps,
         offset,
-        progress,
-        debug,
+        progress: progress ? 1 : 0,
+        debug: debug ? 1 : 0,
         threshold,
         once,
         parent,
@@ -59,9 +59,9 @@ class Scrollama extends React.Component {
   }
 
   render() {
-    const { children, style = {}, className = '', ...restProps } = this.props
+    const { children, ...primitiveProps } = this.props
     return (
-      <div style={style} className={className} {...restProps}>
+      <div {...primitiveProps}>
         <ScrollamaContext.Provider value={(ref) => this.setupRef(ref)}>
           {children}
         </ScrollamaContext.Provider>
