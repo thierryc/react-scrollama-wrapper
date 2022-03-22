@@ -4,8 +4,6 @@ React Scrollama Wrapper is a **easy way** to use the great scrollytelling using 
 
 This project is at an early stage of development, so there are some bugs and some features are not implemented yet.
 
-It is a **React** component, so you can use it in your own project.
-
 I need help to test it and improve it, please send me a pull request.
 
 ## About Scrollama
