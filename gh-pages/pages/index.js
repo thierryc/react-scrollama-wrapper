@@ -8,6 +8,12 @@ export default function Home() {
   const [progress, setProgress] = React.useState(null)
   const [direction, setDirection] = React.useState(null)
   const [message, setMessage] = React.useState('')
+  const settings = {
+    progress: true,
+    debug: false,
+    offset: 0.33,
+    threshold: 4,
+  }
 
   const onStepEnter = (step) => {
     /* add your logic here */
@@ -28,6 +34,7 @@ export default function Home() {
   const onStepProgress = (step) => {
     /* add your logic here */
     const { progress } = step
+    console.log('onStepProgress', progress);
     setProgress(progress)
   }
 
@@ -45,12 +52,13 @@ export default function Home() {
       >
         <Scrollama
           className={styles.scrolly}
-          offset={0.33}
-          progress
+          offset={settings.offset}
+          progress={settings.progress}
+          threshold={settings.threshold}
           onStepProgress={onStepProgress}
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
-          debug
+          debug={settings.debug}
         >
           <Step
             className={styles.step}
@@ -73,7 +81,7 @@ export default function Home() {
           <Step 
             className={styles.step} 
             style={{ minHeight: "80vh" }}
-            data-step-name={"onStepEnter"}
+            data-step-name={"onStepEnter documentation"}
           >
             <a href="https://www.anotherplanet.io">
               <h2>onStepEnter &rarr;</h2>
@@ -86,7 +94,7 @@ export default function Home() {
           <Step
             className={styles.step}
             style={{ minHeight: "130vh" }}
-            data-step-name={"onStepExit"}
+            data-step-name={"onStepExit documentation"}
           >
             <a href="https://www.anotherplanet.io">
               <h2>onStepExit &rarr;</h2>
@@ -99,14 +107,31 @@ export default function Home() {
 
           <Step
             className={styles.step}
-            data-offset={0}
             style={{ minHeight: "66vh" }}
+            data-step-name={"onStepProgress documentation"}
           >
             <a href="https://www.anotherplanet.io">
               <h2>onStepProgress &rarr;</h2>
               <p>
                 Callback that fires the progress (0 - 1) a step has made through
                 the threshold.
+              </p>
+            </a>
+          </Step>
+
+          <Step
+            className={styles.step}
+            data-offset={0.1}
+            style={{ minHeight: "66vh" }}
+            data-step-name={"Data Offset documentation"}
+          >
+            <a href="https://www.anotherplanet.io">
+              <h2>Data Offset &rarr;</h2>
+              <p>
+                Add data-offset to your step to replace the default offset for this element only.
+              </p>
+              <p>
+                This data-offset is set to 0.1. (10%).
               </p>
             </a>
           </Step>

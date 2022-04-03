@@ -31,13 +31,15 @@ class Scrollama extends React.Component {
       parent = undefined
     } = this.props
 
+    this.rest = rest
+
     this.scroller
       .setup({
         step: this.steps,
         offset,
-        progress: progress ? 1 : 0,
-        debug: debug ? 1 : 0,
-        threshold,
+        progress: progress ? true : false,
+        debug: debug ? true : false,
+        threshold, // the percentage of the viewport that must be visible
         once,
         parent,
       })
@@ -59,7 +61,17 @@ class Scrollama extends React.Component {
   }
 
   render() {
-    const { children, ...primitiveProps } = this.props
+    const { children, 
+      offset, 
+      progress, 
+      threshold, 
+      onStepProgress, 
+      onStepEnter, 
+      onStepExit, 
+      debug, 
+      ...primitiveProps 
+    } = this.props
+
     return (
       <div {...primitiveProps}>
         <ScrollamaContext.Provider value={(ref) => this.setupRef(ref)}>
