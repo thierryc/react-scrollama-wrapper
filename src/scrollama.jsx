@@ -31,8 +31,6 @@ class Scrollama extends React.Component {
       parent = undefined
     } = this.props
 
-    this.rest = rest
-
     this.scroller
       .setup({
         step: this.steps,
