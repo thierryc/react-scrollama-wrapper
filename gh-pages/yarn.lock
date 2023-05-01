@@ -2,14 +2,14 @@
 # yarn lockfile v1
 
 
-"@ap.cx/react-scrollama-wrapper@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/@ap.cx/react-scrollama-wrapper/-/react-scrollama-wrapper-3.1.1.tgz"
-  integrity sha512-bZJqiCwdrhPOjz+es3nN5ptQIdK4efczC0pyHUZUqe2nebKvJVTpvFKcqjLh850HubYNn33rEw6Hls13x7uQqA==
+"@ap.cx/react-scrollama-wrapper@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.npmjs.org/@ap.cx/react-scrollama-wrapper/-/react-scrollama-wrapper-3.1.2.tgz"
+  integrity sha512-zLEJ/cOCCBZaSXAlShfHMCeNaoacYAbYVe3Co8QUZpEzDCrTYgRn8qAwLaKLVLkJRcbQnyXQ+PDeY4EFnUxETw==
   dependencies:
-    react "18.0.0"
-    react-dom "18.0.0"
-    scrollama "^3"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    scrollama "^3.2.0"
 
 "@babel/runtime@^7.20.7":
   version "7.21.5"
@@ -1513,21 +1513,13 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-"react-dom@^17.0.2 || ^18.0.0-0", react-dom@18.2.0:
+"react-dom@^17.0.2 || ^18.0.0-0", react-dom@^18.2.0, react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
-
-react-dom@18.0.0:
-  version "18.0.0"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.0.0.tgz"
-  integrity sha512-XqX7uzmFo0pUceWFCt7Gff6IyIMzFUn7QMZrbrQfGxtaxXZIcGQzoNpRLE3fQLnS4XzLLPMZX2T9TRcSrasicw==
-  dependencies:
-    loose-envify "^1.1.0"
-    scheduler "^0.21.0"
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -1538,13 +1530,6 @@ react-is@^16.13.1:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
-  dependencies:
-    loose-envify "^1.1.0"
-
-react@^18.0.0, react@18.0.0:
-  version "18.0.0"
-  resolved "https://registry.npmjs.org/react/-/react-18.0.0.tgz"
-  integrity sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A==
   dependencies:
     loose-envify "^1.1.0"
 
@@ -1613,13 +1598,6 @@ safe-regex-test@^1.0.0:
     get-intrinsic "^1.1.3"
     is-regex "^1.1.4"
 
-scheduler@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.21.0.tgz"
-  integrity sha512-1r87x5fz9MXqswA2ERLo0EbOAU74DpIUO090gIasYTqlVoJeMcl+Z1Rg7WHz+qtPujhS/hGIt9kxZOYBV3faRQ==
-  dependencies:
-    loose-envify "^1.1.0"
-
 scheduler@^0.23.0:
   version "0.23.0"
   resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.23.0.tgz"
@@ -1627,7 +1605,7 @@ scheduler@^0.23.0:
   dependencies:
     loose-envify "^1.1.0"
 
-scrollama@^3:
+scrollama@^3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/scrollama/-/scrollama-3.2.0.tgz"
   integrity sha512-PIPwB1kYBnbw/ezvPBJa5dCN5qEwokfpAkI3BmpZWAwcVID4nDf1qH6WV16A2fQaJmsKx0un5S/zhxN+PQeKDQ==
