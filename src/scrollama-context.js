@@ -1,3 +1,9 @@
-import React from "react";
+import { createContext, useContext } from "react";
 
-export const ScrollamaContext = React.createContext(() => {});
+const ScrollamaContext = createContext(() => {});
+
+const useScrollamaContext = () => {
+    return useContext(ScrollamaContext);
+};
+
+export { ScrollamaContext, useScrollamaContext };

@@ -16,6 +16,8 @@ The @ap.cx/react-scrollama-wrapper package is a wrapper for the scrollama librar
 
 # Version
 
+The version 3.2.x add hook use context useScrollamaContext.
+
 The version 3.x.x of the @ap.cx/react-scrollama-wrapper package is build over the 3.x.x version of the scrollama library.
 
 The version 2.x.x of the @ap.cx/react-scrollama-wrapper package is build over the 2.x.x version of the scrollama library.
