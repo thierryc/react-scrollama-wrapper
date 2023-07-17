@@ -143,6 +143,79 @@ The argument of the callback is an object: `{ element: DOMElement, index: number
 
 `progress`: The percent of completion of the step (0 - 1)
 
+
+Sure! Here's the documentation for adding a component to the Scrollama context using the `useScrollamaContext` hook and passing a React ref created with `React.createRef()`. It also includes the code for removing the component before unmounting:
+
+---
+
+**Adding and Removing a Component from Scrollama Context**
+
+The Scrollama library provides a convenient way to create scroll-driven interactions in React applications. To add a component to the Scrollama context and remove it before unmounting, you can follow the steps outlined below.
+
+1. Import the necessary dependencies:
+   ```jsx
+   import React, { useEffect, useContext } from 'react';
+   import { useScrollamaContext } from 'scrollama';
+   ```
+
+2. Create a React ref for your component using `React.createRef()`:
+   ```jsx
+   const stepRef = React.createRef();
+   ```
+
+3. Use the `useScrollamaContext` hook to access the Scrollama context:
+   ```jsx
+   const removeStep = useScrollamaContext();
+   ```
+
+4. Add the component to the Scrollama context when the component mounts:
+   ```jsx
+   useEffect(() => {
+     const remove = removeStep(stepRef);
+     return () => {
+       remove();
+     };
+   }, []);
+   ```
+
+   In the above code, the `useEffect` hook is used to execute the code when the component mounts. The `removeStep` function returned by the `useScrollamaContext` hook is called with the `stepRef` as an argument. The returned `remove` function is stored in the `remove` variable. Finally, the `remove` function is called when the component is unmounted.
+
+   **Note**: The `[]` as the second argument for `useEffect` ensures that the effect is only run once when the component mounts.
+
+5. The complete code for a component using Scrollama context and removing it before unmounting might look like this:
+   ```jsx
+   import React, { useEffect, useContext } from 'react';
+   import { useScrollamaContext } from 'scrollama';
+
+   const MyComponent = () => {
+     const stepRef = React.createRef();
+     const removeStep = useScrollamaContext();
+
+     useEffect(() => {
+       const remove = removeStep(stepRef);
+       return () => {
+         remove();
+       };
+     }, []);
+
+     // Rest of your component code
+
+     return <div ref={stepRef}>Your component content</div>;
+   };
+
+   export default MyComponent;
+   ```
+
+   In this example, the `stepRef` is assigned to the `ref` prop of the component's root element (`div`). Make sure to replace `'Your component content'` with your actual component content.
+
+   By using this code, your component will be added to the Scrollama context when it mounts, and it will be automatically removed when it unmounts.
+
+---
+
+Remember to install the Scrollama library and any additional dependencies required for your project. Additionally, ensure that you have the correct version of React and Scrollama for compatibility with the `useScrollamaContext` hook. Refer to the official documentation of Scrollama and React for more details and specific usage instructions.
+
+
+
 ### Dependencies (3)
 
 - react 17.0.0 || 18.0.0
