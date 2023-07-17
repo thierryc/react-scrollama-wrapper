@@ -6,6 +6,19 @@
   "main": "lib/index.js",
   "module": "lib/index.module.js",
   "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thierryc/react-scrollama-wrapper.git"
+  },
+  "keywords": [
+    "react",
+    "scrollama",
+    "wrapper"
+  ],
+  "bugs": {
+    "url": "https://github.com/thierryc/react-scrollama-wrapper/issues"
+  },
+  "homepage": "https://github.com/thierryc/react-scrollama-wrapper#readme",
   "directories": {
     "example": "example"
   },
