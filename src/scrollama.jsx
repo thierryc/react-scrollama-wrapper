@@ -11,14 +11,23 @@ class Scrollama extends React.Component {
     this.steps = []
   }
 
+  reset() {
+    window.removeEventListener("resize", this.scroller.resize)
+    this.scroller.destroy()
+    this.initialize()
+    window.addEventListener("resize", this.scroller.resize)
+  }
+
   setupRef(ref) {
     this.steps.push(ref.current)
+    this.reset()
     return () => {
       this.steps.splice(this.steps.indexOf(ref.current), 1)
+      this.reset()
     }
   }
 
-  componentDidMount() {
+  initialize() {
     const {
       offset = 0.5,
       progress = false,
@@ -50,9 +59,13 @@ class Scrollama extends React.Component {
       .onStepProgress((response) => {
         onStepProgress(response)
       })
+  }
 
+  componentDidMount() {
+    this.initialize()
     window.addEventListener("resize", this.scroller.resize)
   }
+
   componentWillUnmount() {
     this.scroller.destroy()
     window.removeEventListener("resize", this.scroller.resize)
