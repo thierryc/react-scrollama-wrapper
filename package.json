@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "private": false,
   "description": "react scrollama wrapper",
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "exports": {
     ".": {
