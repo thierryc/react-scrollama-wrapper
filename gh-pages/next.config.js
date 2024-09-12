@@ -1,4 +1,5 @@
+
 module.exports = {
   reactStrictMode: true,
-  assetPrefix: process.env.NODE_ENV === "production" ? '/react-scrollama-wrapper/' : '',
+  ...(process.env.NODE_ENV === "production" ? { assetPrefix: '/react-scrollama-wrapper/' } : {})
 }

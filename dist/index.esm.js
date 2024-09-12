@@ -1,7 +1,5 @@
-'use strict';
-
-var React = require('react');
-var scrollama = require('scrollama');
+import React, { createContext, useContext } from 'react';
+import scrollama from 'scrollama';
 
 function _assertThisInitialized(e) {
   if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -111,9 +109,9 @@ function _toPropertyKey(t) {
   return "symbol" == typeof i ? i : i + "";
 }
 
-var ScrollamaContext = /*#__PURE__*/React.createContext();
+var ScrollamaContext = /*#__PURE__*/createContext();
 var useScrollamaContext = function useScrollamaContext() {
-  return React.useContext(ScrollamaContext);
+  return useContext(ScrollamaContext);
 };
 
 var _excluded$1 = ["children", "offset", "progress", "threshold", "onStepProgress", "onStepEnter", "onStepExit", "debug"];
@@ -256,8 +254,5 @@ var Step = /*#__PURE__*/function (_React$Component) {
 }(React.Component);
 _defineProperty(Step, "contextType", ScrollamaContext);
 
-exports.Scrollama = Scrollama;
-exports.ScrollamaContext = ScrollamaContext;
-exports.Step = Step;
-exports.useScrollamaContext = useScrollamaContext;
-//# sourceMappingURL=index.js.map
+export { Scrollama, ScrollamaContext, Step, useScrollamaContext };
+//# sourceMappingURL=index.esm.js.map
