@@ -3,16 +3,16 @@
   "version": "4.0.1",
   "private": false,
   "description": "react scrollama wrapper",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js"
+      "import": "./lib/index.esm.js",
+      "require": "./lib/index.js"
     }
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "types": "index.d.ts",
   "type": "module",

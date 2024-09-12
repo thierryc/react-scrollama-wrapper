@@ -2,9 +2,10 @@
 # yarn lockfile v1
 
 
-"@ap.cx/react-scrollama-wrapper@file:..":
-  version "4.0.0"
-  resolved "file:.."
+"@ap.cx/react-scrollama-wrapper@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/@ap.cx/react-scrollama-wrapper/-/react-scrollama-wrapper-4.0.1.tgz"
+  integrity sha512-RqnHHoE/eLvfwJklvSLZ533mNnLAAULDHwPvenYjxWO7jVGbfggLB0hpMN4ZTm4jGIs38wCWUYF+rnv0RV6UNw==
   dependencies:
     react "^18.2.0"
     react-dom "^18.2.0"
@@ -1697,7 +1698,7 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-"react-dom@^17.0.2 || ^18.0.0-0", react-dom@18.2.0:
+"react-dom@^17.0.2 || ^18.0.0-0", react-dom@^18.2.0, react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -1807,6 +1808,11 @@ scheduler@^0.23.0:
   integrity sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==
   dependencies:
     loose-envify "^1.1.0"
+
+scrollama@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/scrollama/-/scrollama-3.2.0.tgz"
+  integrity sha512-PIPwB1kYBnbw/ezvPBJa5dCN5qEwokfpAkI3BmpZWAwcVID4nDf1qH6WV16A2fQaJmsKx0un5S/zhxN+PQeKDQ==
 
 semver@^6.3.1:
   version "6.3.1"
