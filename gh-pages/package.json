@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ap.cx/react-scrollama-wrapper": "^4.0.1",
+    "@ap.cx/react-scrollama-wrapper": "^4.0.2",
     "next": "^12.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"

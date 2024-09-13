@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ap.cx/react-scrollama-wrapper@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/@ap.cx/react-scrollama-wrapper/-/react-scrollama-wrapper-4.0.1.tgz"
-  integrity sha512-RqnHHoE/eLvfwJklvSLZ533mNnLAAULDHwPvenYjxWO7jVGbfggLB0hpMN4ZTm4jGIs38wCWUYF+rnv0RV6UNw==
+"@ap.cx/react-scrollama-wrapper@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.npmjs.org/@ap.cx/react-scrollama-wrapper/-/react-scrollama-wrapper-4.0.2.tgz"
+  integrity sha512-JRP+wISWDM03NXxWa5/sulixdkHL4e1ICzrc8XJu832JIHSS+MQHNBy1E+Bo2A5MS2/JMp8V1El6g7NauM59rA==
   dependencies:
     react "^18.2.0"
     react-dom "^18.2.0"
