@@ -11,6 +11,7 @@ class Step extends React.Component {
   }
 
   componentDidMount() {
+    // @ts-ignore
     this.remove = this.context(this.stepRef)
   }
 
@@ -19,6 +20,7 @@ class Step extends React.Component {
   }
 
   render() {
+    // @ts-ignore
     const { children, ...primitiveProps } = this.props
     return (
       <div ref={this.stepRef} {...primitiveProps}>

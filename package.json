@@ -1,10 +1,11 @@
 {
   "name": "@ap.cx/react-scrollama-wrapper",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "private": false,
   "description": "react scrollama wrapper",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
   "exports": {
     ".": {
       "import": "./lib/index.esm.js",
@@ -14,7 +15,6 @@
   "files": [
     "lib"
   ],
-  "types": "index.d.ts",
   "type": "module",
   "repository": {
     "type": "git",
@@ -38,13 +38,12 @@
     "prepublishOnly": "npm run build",
     "predeploy": "cd ./gh-pages && npm install && npm run export",
     "deploy": "touch ./gh-pages/out/.nojekyll && gh-pages -d ./gh-pages/out -t true",
-    "link": "npm run build && npm link && cd ./gh-pages && npm link @ap.cx/react-scrollama-wrapper"
+    "link": "npm run build && npm link && cd ./gh-pages && npm link @ap.cx/react-scrollama-wrapper",
+    "generate-dts": "dts-gen -m @ap.cx/react-scrollama-wrapper -f lib/index.d.ts"
   },
   "author": "thierryc",
   "license": "MIT",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "scrollama": "^3.2.0"
   },
   "peerDependencies": {
@@ -59,8 +58,13 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^12.1.0",
     "gh-pages": "^6.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rollup": "^4.21.3",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2"
   }
 }

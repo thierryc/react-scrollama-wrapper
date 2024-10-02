@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "allowJs": true, // Allows JavaScript files to be compiled
+        "declaration": true, // Generates declaration (.d.ts) files
+        "emitDeclarationOnly": true, // Only emit declaration files
+        "outDir": "lib", // Output directory for the declaration files
+        "checkJs": true, // Check JavaScript files using TypeScript rules
+        "jsx": "react", // Add this to support JSX
+        "esModuleInterop": true // Ensures compatibility with ES module imports
+    },
+    "include": [
+        "src/**/*.js"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib"
+    ]
+}

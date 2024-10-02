@@ -28,6 +28,9 @@ class Scrollama extends React.Component {
   }
 
   initialize() {
+    if (this.steps.length <= 0) {
+      return;
+    }
     const {
       offset = 0.5,
       progress = false,
@@ -38,6 +41,7 @@ class Scrollama extends React.Component {
       threshold = 4,
       once = false,
       parent = undefined
+    // @ts-ignore
     } = this.props
 
     this.scroller
@@ -48,6 +52,7 @@ class Scrollama extends React.Component {
         debug: debug ? true : false,
         threshold, // the percentage of the viewport that must be visible
         once,
+        // @ts-ignore
         parent,
       })
       .onStepEnter((response) => {
@@ -81,6 +86,7 @@ class Scrollama extends React.Component {
       onStepExit, 
       debug, 
       ...primitiveProps 
+    // @ts-ignore
     } = this.props
 
     return (
