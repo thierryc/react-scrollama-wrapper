@@ -1,33 +1,22 @@
-import React from "react"
-import { ScrollamaContext } from "./scrollama-context"
+import React, { useRef, useEffect, useContext } from "react";
+import { ScrollamaContext } from "./scrollama-context";
 
-class Step extends React.Component {
-  static contextType = ScrollamaContext
+const Step = ({ children, ...primitiveProps }) => {
+  const stepRef = useRef(null);
+  const context = useContext(ScrollamaContext);
 
-  constructor(props) {
-    super(props)
-    this.stepRef = React.createRef()
-    this.remove = null
-  }
+  useEffect(() => {
+    const remove = context(stepRef);
+    return () => {
+      remove();
+    };
+  }, [context]);
 
-  componentDidMount() {
-    // @ts-ignore
-    this.remove = this.context(this.stepRef)
-  }
+  return (
+    <div ref={stepRef} {...primitiveProps}>
+      {children}
+    </div>
+  );
+};
 
-  componentWillUnmount() {
-    this.remove()
-  }
-
-  render() {
-    // @ts-ignore
-    const { children, ...primitiveProps } = this.props
-    return (
-      <div ref={this.stepRef} {...primitiveProps}>
-        {children}
-      </div>
-    )
-  }
-}
-
-export default Step
+export default Step;

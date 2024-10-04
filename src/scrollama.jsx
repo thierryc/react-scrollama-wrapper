@@ -1,102 +1,78 @@
-import React from "react"
-import { ScrollamaContext } from "./scrollama-context"
-import scrollama from "scrollama"
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { ScrollamaContext } from "./scrollama-context";
+import scrollama from "scrollama";
 
-class Scrollama extends React.Component {
-  static contextType = ScrollamaContext
+const Scrollama = ({
+  children,
+  offset = 0.5,
+  progress = false,
+  debug = false,
+  onStepEnter = () => {},
+  onStepExit = () => {},
+  onStepProgress = () => {},
+  threshold = 4,
+  once = false,
+  parent = undefined,
+  ...primitiveProps
+}) => {
+  const [scroller] = useState(() => scrollama());
+  const stepsRef = useRef([]);
 
-  constructor(props) {
-    super(props)
-    this.scroller = scrollama()
-    this.steps = []
-  }
+  const reset = useCallback(() => {
+    window.removeEventListener("resize", scroller.resize);
+    scroller.destroy();
+    initialize();
+    window.addEventListener("resize", scroller.resize);
+  }, [scroller]);
 
-  reset() {
-    window.removeEventListener("resize", this.scroller.resize)
-    this.scroller.destroy()
-    this.initialize()
-    window.addEventListener("resize", this.scroller.resize)
-  }
-
-  setupRef(ref) {
-    this.steps.push(ref.current)
-    this.reset()
-    return () => {
-      this.steps.splice(this.steps.indexOf(ref.current), 1)
-      this.reset()
+  const setupRef = useCallback((ref) => {
+    if (ref && ref.current) {
+      stepsRef.current.push(ref.current);
+      reset();
+      return () => {
+        stepsRef.current = stepsRef.current.filter((step) => step !== ref.current);
+        reset();
+      };
     }
-  }
+  }, [reset]);
 
-  initialize() {
-    if (this.steps.length <= 0) {
+  const initialize = useCallback(() => {
+    if (stepsRef.current.length <= 0) {
       return;
     }
-    const {
-      offset = 0.5,
-      progress = false,
-      debug = false,
-      onStepEnter = () => {},
-      onStepExit = () => {},
-      onStepProgress = () => {},
-      threshold = 4,
-      once = false,
-      parent = undefined
-    // @ts-ignore
-    } = this.props
 
-    this.scroller
+    scroller
       .setup({
-        step: this.steps,
+        step: stepsRef.current,
         offset,
         progress: progress ? true : false,
         debug: debug ? true : false,
-        threshold, // the percentage of the viewport that must be visible
+        threshold,
         once,
-        // @ts-ignore
         parent,
       })
-      .onStepEnter((response) => {
-        onStepEnter(response)
-      })
-      .onStepExit((response) => {
-        onStepExit(response)
-      })
-      .onStepProgress((response) => {
-        onStepProgress(response)
-      })
-  }
+      .onStepEnter(onStepEnter)
+      .onStepExit(onStepExit)
+      .onStepProgress(onStepProgress);
+  }, [scroller, offset, progress, debug, threshold, once, parent, onStepEnter, onStepExit, onStepProgress]);
 
-  componentDidMount() {
-    this.initialize()
-    window.addEventListener("resize", this.scroller.resize)
-  }
+  useEffect(() => {
+    initialize();
+    window.addEventListener("resize", scroller.resize);
 
-  componentWillUnmount() {
-    this.scroller.destroy()
-    window.removeEventListener("resize", this.scroller.resize)
-  }
+    return () => {
+      scroller.destroy();
+      window.removeEventListener("resize", scroller.resize);
+    };
+  }, []);
 
-  render() {
-    const { children, 
-      offset, 
-      progress, 
-      threshold, 
-      onStepProgress, 
-      onStepEnter, 
-      onStepExit, 
-      debug, 
-      ...primitiveProps 
-    // @ts-ignore
-    } = this.props
+  return (
+    <div {...primitiveProps}>
+      <ScrollamaContext.Provider value={setupRef}>
+        {children}
+      </ScrollamaContext.Provider>
+    </div>
+  );
+};
 
-    return (
-      <div {...primitiveProps}>
-        <ScrollamaContext.Provider value={(ref) => this.setupRef(ref)}>
-          {children}
-        </ScrollamaContext.Provider>
-      </div>
-    )
-  }
-}
-
-export default Scrollama
+export default Scrollama;
