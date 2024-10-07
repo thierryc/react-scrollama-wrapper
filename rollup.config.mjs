@@ -30,6 +30,6 @@ export default {
       extensions: [".js", ".jsx"],
     }),
     commonjs(),
-    typescript({ tsconfig: "./tsconfig.json" })  // Add TypeScript plugin
+    // typescript({ tsconfig: "./tsconfig.json" })  // Add TypeScript plugin
   ],
 };
