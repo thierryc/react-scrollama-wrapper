@@ -1,16 +1,18 @@
-import React, { useRef, useEffect, useContext } from "react";
-import { ScrollamaContext } from "./scrollama-context";
+import React, { useRef, useEffect } from "react";
+import { useScrollamaContext } from "./scrollama-context";
 
 const Step = ({ children, ...primitiveProps }) => {
   const stepRef = useRef(null);
-  const context = useContext(ScrollamaContext);
+  const registerStep = useScrollamaContext();
 
   useEffect(() => {
-    const remove = context(stepRef);
+    const remove = registerStep(stepRef);
     return () => {
-      remove();
+      if (typeof remove === "function") {
+        remove();
+      }
     };
-  }, [context]);
+  }, [registerStep]);
 
   return (
     <div ref={stepRef} {...primitiveProps}>

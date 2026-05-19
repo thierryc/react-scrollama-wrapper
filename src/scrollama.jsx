@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { ScrollamaContext } from "./scrollama-context";
 import scrollama from "scrollama";
 
@@ -15,29 +15,30 @@ const Scrollama = ({
   parent = undefined,
   ...primitiveProps
 }) => {
-  const [scroller] = useState(() => scrollama());
+  const scrollerRef = useRef(null);
   const stepsRef = useRef([]);
+  const hasSetupRef = useRef(false);
 
-  const reset = useCallback(() => {
-    window.removeEventListener("resize", scroller.resize);
-    scroller.destroy();
-    initialize();
-    window.addEventListener("resize", scroller.resize);
-  }, [scroller]);
-
-  const setupRef = useCallback((ref) => {
-    if (ref && ref.current) {
-      stepsRef.current.push(ref.current);
-      reset();
-      return () => {
-        stepsRef.current = stepsRef.current.filter((step) => step !== ref.current);
-        reset();
-      };
+  const getScroller = useCallback(() => {
+    if (!scrollerRef.current) {
+      scrollerRef.current = scrollama();
     }
-  }, [reset]);
+    return scrollerRef.current;
+  }, []);
 
   const initialize = useCallback(() => {
-    if (stepsRef.current.length <= 0) {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const scroller = getScroller();
+
+    if (hasSetupRef.current) {
+      scroller.destroy();
+      hasSetupRef.current = false;
+    }
+
+    if (stepsRef.current.length === 0) {
       return;
     }
 
@@ -54,17 +55,48 @@ const Scrollama = ({
       .onStepEnter(onStepEnter)
       .onStepExit(onStepExit)
       .onStepProgress(onStepProgress);
-  }, [scroller, offset, progress, debug, threshold, once, parent, onStepEnter, onStepExit, onStepProgress]);
+
+    hasSetupRef.current = true;
+  }, [getScroller, offset, progress, debug, threshold, once, parent, onStepEnter, onStepExit, onStepProgress]);
+
+  const setupRef = useCallback((ref) => {
+    if (!ref || !ref.current) {
+      return undefined;
+    }
+
+    const element = ref.current;
+
+    if (!stepsRef.current.includes(element)) {
+      stepsRef.current.push(element);
+    }
+
+    initialize();
+
+    return () => {
+      stepsRef.current = stepsRef.current.filter((step) => step !== element);
+      initialize();
+    };
+  }, [initialize]);
 
   useEffect(() => {
     initialize();
+  }, [initialize]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    const scroller = getScroller();
     window.addEventListener("resize", scroller.resize);
 
     return () => {
-      scroller.destroy();
       window.removeEventListener("resize", scroller.resize);
+      scroller.destroy();
+      scrollerRef.current = null;
+      hasSetupRef.current = false;
     };
-  }, []);
+  }, [getScroller]);
 
   return (
     <div {...primitiveProps}>

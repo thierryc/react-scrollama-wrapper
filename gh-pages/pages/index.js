@@ -27,14 +27,12 @@ export default function Home() {
   const onStepExit = (step) => {
     /* add your logic here */
     const { element } = step
-    console.log('onStepExit', element);
     element.classList.remove(styles.active);
   }
 
   const onStepProgress = (step) => {
     /* add your logic here */
     const { progress } = step
-    console.log('onStepProgress', progress);
     setProgress(progress)
   }
 
@@ -140,8 +138,8 @@ export default function Home() {
             <a href="https://www.anotherplanet.io">
               <h2>props &rarr;</h2>
               <p>
-                Every props set to the step is sent to the scrollama component
-                and can be used in the srollyteling.
+                Every prop set on a step is passed to the scrollama component
+                and can be used in the scrollytelling.
               </p>
               <p>Like data for D3js, image, url, mapbox lat/lng…</p>
             </a>
@@ -153,7 +151,7 @@ export default function Home() {
           >
             <a href="https://www.anotherplanet.io">
               <h2>Anotherplanet.io &rarr;</h2>
-              <p>My Self Bragging page about my life and work.</p>
+              <p>My portfolio page about my life and work.</p>
             </a>
           </Step>
         </Scrollama>

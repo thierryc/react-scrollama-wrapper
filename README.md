@@ -1,6 +1,6 @@
 # react-scrollama-wrapper
 
-React Scrollama Wrapper is a **easy way** to use the great scrollytelling using **React** and IntersectionObserver **Scrollama** JavaScript lib.
+React Scrollama Wrapper is an **easy way** to use scrollytelling with **React** and the IntersectionObserver-based **Scrollama** JavaScript library.
 
 This project is at an early stage of development, so there are some bugs and some features are not implemented yet.
 
@@ -16,15 +16,15 @@ The @ap.cx/react-scrollama-wrapper package is a wrapper for the scrollama librar
 
 # Version
 
-The version 3.2.x add hook use context useScrollamaContext.
+Version 3.2.x added the `useScrollamaContext` hook.
 
-The version 3.x.x of the @ap.cx/react-scrollama-wrapper package is build over the 3.x.x version of the scrollama library.
+Version 3.x.x of the @ap.cx/react-scrollama-wrapper package is built over the 3.x.x version of the scrollama library.
 
-The version 2.x.x of the @ap.cx/react-scrollama-wrapper package is build over the 2.x.x version of the scrollama library.
+Version 2.x.x of the @ap.cx/react-scrollama-wrapper package is built over the 2.x.x version of the scrollama library.
 
 The version 2.x.x is not supported anymore.
 
-The version are not stritly aligned with each other. The only way to know which version of the scrollama library is used is to check the version of the @ap.cx/react-scrollama-wrapper package.
+The versions are not strictly aligned with each other. The only way to know which version of the scrollama library is used is to check the version of the @ap.cx/react-scrollama-wrapper package.
 
 ## Installation
 
@@ -60,7 +60,7 @@ export default function Home() {
       onStepProgress={onStepProgress} 
       onStepEnter={onStepEnter} 
       onStepExit={onStepExit}
-      // degug  // add this line to see the debug offset triger line in your page
+      // debug  // add this line to see the debug offset trigger line in your page
     >
       <Step>
         <h1>Step 1</h1>
@@ -81,7 +81,7 @@ export default function Home() {
 ```
 
 Take a look at the code in the [gh-pages](https://thierryc.github.io/react-scrollama-wrapper/) branch of the @ap.cx/react-scrollama-wrapper repository to see how it works.
-The gh-pages is build on [Next.js](https://nextjs.org).
+The gh-pages example is built on [Next.js](https://nextjs.org).
 
 ## How to style the component?
 
@@ -97,7 +97,7 @@ You can use className or style or css in js to style the Scrollama and Step comp
 
 ```
 
-I use it with [https://stitches.dev](stitches).
+I use it with [stitches](https://stitches.dev).
 
 ```js
 
@@ -144,7 +144,7 @@ The argument of the callback is an object: `{ element: DOMElement, index: number
 `progress`: The percent of completion of the step (0 - 1)
 
 
-Sure! Here's the documentation for adding a component to the Scrollama context using the `useScrollamaContext` hook and passing a React ref created with `React.createRef()`. It also includes the code for removing the component before unmounting:
+Here is how to add a custom component to the Scrollama context with the `useScrollamaContext` hook and remove it before unmounting:
 
 ---
 
@@ -154,13 +154,13 @@ The Scrollama library provides a convenient way to create scroll-driven interact
 
 1. Import the necessary dependencies:
    ```jsx
-   import React, { useEffect, useContext } from 'react';
-   import { useScrollamaContext } from 'scrollama';
+   import React, { useEffect, useRef } from 'react';
+   import { useScrollamaContext } from '@ap.cx/react-scrollama-wrapper';
    ```
 
-2. Create a React ref for your component using `React.createRef()`:
+2. Create a React ref for your component:
    ```jsx
-   const stepRef = React.createRef();
+   const stepRef = useRef(null);
    ```
 
 3. Use the `useScrollamaContext` hook to access the Scrollama context:
@@ -180,15 +180,15 @@ The Scrollama library provides a convenient way to create scroll-driven interact
 
    In the above code, the `useEffect` hook is used to execute the code when the component mounts. The `removeStep` function returned by the `useScrollamaContext` hook is called with the `stepRef` as an argument. The returned `remove` function is stored in the `remove` variable. Finally, the `remove` function is called when the component is unmounted.
 
-   **Note**: The `[]` as the second argument for `useEffect` ensures that the effect is only run once when the component mounts.
+   **Note**: Include `removeStep` in the effect dependencies so React can re-run the registration if the provider changes.
 
 5. The complete code for a component using Scrollama context and removing it before unmounting might look like this:
    ```jsx
-   import React, { useEffect, useContext } from 'react';
-   import { useScrollamaContext } from 'scrollama';
+   import React, { useEffect, useRef } from 'react';
+   import { useScrollamaContext } from '@ap.cx/react-scrollama-wrapper';
 
    const MyComponent = () => {
-     const stepRef = React.createRef();
+     const stepRef = useRef(null);
      const removeStep = useScrollamaContext();
 
      useEffect(() => {
@@ -196,7 +196,7 @@ The Scrollama library provides a convenient way to create scroll-driven interact
        return () => {
          remove();
        };
-     }, []);
+     }, [removeStep]);
 
      // Rest of your component code
 
@@ -212,19 +212,19 @@ The Scrollama library provides a convenient way to create scroll-driven interact
 
 ---
 
-Remember to install the Scrollama library and any additional dependencies required for your project. Additionally, ensure that you have the correct version of React and Scrollama for compatibility with the `useScrollamaContext` hook. Refer to the official documentation of Scrollama and React for more details and specific usage instructions.
+Remember to install `@ap.cx/react-scrollama-wrapper` and ensure that your React and Scrollama versions satisfy the peer dependency ranges.
 
 
 
 ### Dependencies (3)
 
-- react 17.0.0 || 18.0.0
-- react-dom 17.0.0 || 18.0.0
-- scrollama ^3.0.1
+- react >=18.0.0 <20.0.0
+- react-dom >=18.0.0 <20.0.0
+- scrollama ^3.2.0
  
  ### A wrapper for Scrollama
  
- This repo is NOT a fork of react-scrollama but a wrapper over the greate original **Scrollama** made and support by [https://github.com/russellgoldenberg](Russell Goldenberg).
+ This repo is NOT a fork of react-scrollama but a wrapper over the great original **Scrollama** made and supported by [Russell Goldenberg](https://github.com/russellgoldenberg).
 
  ### Alternatives
 
@@ -254,7 +254,7 @@ Check on [caniuse (intersectionobserver)](https://caniuse.com/#feat=intersection
 
 ### License
 
-Like the orginal the @ap.cx/react-scrollama-wrapper is licensed under the MIT license
+Like the original, @ap.cx/react-scrollama-wrapper is licensed under the MIT license.
 
 MIT License
 

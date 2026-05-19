@@ -1,18 +1,23 @@
 {
     "compilerOptions": {
+        "target": "ES2018",
+        "lib": ["DOM", "DOM.Iterable", "ES2018"],
         "allowJs": true, // Allows JavaScript files to be compiled
         "declaration": true, // Generates declaration (.d.ts) files
         "emitDeclarationOnly": true, // Only emit declaration files
         "outDir": "lib", // Output directory for the declaration files
         "checkJs": true, // Check JavaScript files using TypeScript rules
         "jsx": "react", // Add this to support JSX
-        "esModuleInterop": true // Ensures compatibility with ES module imports
+        "esModuleInterop": true, // Ensures compatibility with ES module imports
+        "skipLibCheck": true // Avoid type-checking third-party declarations
     },
     "include": [
-        "src/**/*.js"
+        "src/**/*.js",
+        "src/**/*.jsx"
     ],
     "exclude": [
         "node_modules",
-        "lib"
+        "lib",
+        "src/**/*.test.jsx"
     ]
 }

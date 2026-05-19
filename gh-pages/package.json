@@ -4,19 +4,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "NODE_ENV=production next build && NODE_ENV=production next export",
+    "export": "NODE_ENV=production next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@ap.cx/react-scrollama-wrapper": "^4.0.2",
-    "next": "^12.3.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@ap.cx/react-scrollama-wrapper": "^4.2.1",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.10"
+    }
   },
   "devDependencies": {
-    "babel-plugin-transform-define": "^2.1.0",
-    "eslint": "^8.39.0",
-    "eslint-config-next": "^12.3.4"
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.6"
   }
 }

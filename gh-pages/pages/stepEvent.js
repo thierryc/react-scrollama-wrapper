@@ -104,10 +104,10 @@ export default function Home() {
             <a href="https://www.anotherplanet.io">
               <h2>props &rarr;</h2>
               <p>
-                Every props set to the step is sent to the scrollama component
-                and can be used in the srollyteling.
+                Every prop set on a step is passed to the scrollama component
+                and can be used in the scrollytelling.
               </p>
-              <p>Like data for datavise, image url, …</p>
+              <p>Like data for data visualization, image URLs, …</p>
             </a>
           </Step>
 
@@ -117,7 +117,7 @@ export default function Home() {
           >
             <a href="https://www.anotherplanet.io">
               <h2>Anotherplanet.io &rarr;</h2>
-              <p>My Self Bragging page about my life and work.</p>
+              <p>My portfolio page about my life and work.</p>
             </a>
           </Step>
         </Scrollama>

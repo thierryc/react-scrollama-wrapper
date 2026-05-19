@@ -2,7 +2,6 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import { babel } from "@rollup/plugin-babel";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import typescript from "@rollup/plugin-typescript";
 
 export default {
   input: "src/index.js",
@@ -30,6 +29,5 @@ export default {
       extensions: [".js", ".jsx"],
     }),
     commonjs(),
-    // typescript({ tsconfig: "./tsconfig.json" })  // Add TypeScript plugin
   ],
 };
