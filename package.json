@@ -1,15 +1,21 @@
 {
   "name": "@ap.cx/react-scrollama-wrapper",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "private": false,
   "description": "react scrollama wrapper",
-  "main": "lib/index.js",
+  "main": "lib/index.cjs",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "import": "./lib/index.esm.js",
-      "require": "./lib/index.js"
+      "require": "./lib/index.cjs"
+    },
+    "./lib/index.js": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
     }
   },
   "files": [
@@ -36,7 +42,7 @@
     "build": "rollup --config rollup.config.mjs && npm run build:types",
     "build:types": "tsc --project tsconfig.json",
     "dev": "rollup --config rollup.config.mjs -w",
-    "test": "vitest run",
+    "test": "vitest run && tsc --project tsconfig.public-api.json",
     "test:watch": "vitest",
     "prepublishOnly": "npm run build",
     "predeploy": "cd ./gh-pages && npm install && npm run export",

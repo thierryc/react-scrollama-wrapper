@@ -114,6 +114,37 @@ describe("Scrollama", () => {
     expect(scroller.onStepProgress).toHaveBeenLastCalledWith(onStepProgress);
   });
 
+  it("preserves user callback response objects from scrollama", () => {
+    const onStepEnter = vi.fn();
+    const onStepExit = vi.fn();
+    const onStepProgress = vi.fn();
+
+    render(
+      <Scrollama
+        progress
+        onStepEnter={onStepEnter}
+        onStepExit={onStepExit}
+        onStepProgress={onStepProgress}
+      >
+        <Step data-testid="step">Step content</Step>
+      </Scrollama>
+    );
+
+    const scroller = scrollamaMock.instances[0];
+    const step = screen.getByTestId("step");
+    const enterResponse = { element: step, index: 0, direction: "down" };
+    const exitResponse = { element: step, index: 0, direction: "up" };
+    const progressResponse = { element: step, index: 0, progress: 0.5, direction: "down" };
+
+    scroller.onStepEnter.mock.lastCall[0](enterResponse);
+    scroller.onStepExit.mock.lastCall[0](exitResponse);
+    scroller.onStepProgress.mock.lastCall[0](progressResponse);
+
+    expect(onStepEnter).toHaveBeenCalledWith(enterResponse);
+    expect(onStepExit).toHaveBeenCalledWith(exitResponse);
+    expect(onStepProgress).toHaveBeenCalledWith(progressResponse);
+  });
+
   it("reconfigures scrollama when options and callbacks change", () => {
     const firstEnter = vi.fn();
     const secondEnter = vi.fn();

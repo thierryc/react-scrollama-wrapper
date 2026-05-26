@@ -1,7 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import { useScrollamaContext } from "./scrollama-context";
 
+/**
+ * @typedef {import("react").HTMLAttributes<HTMLDivElement> & {
+ *   children?: import("react").ReactNode
+ * }} StepProps
+ */
+
+/**
+ * @param {StepProps} props
+ */
 const Step = ({ children, ...primitiveProps }) => {
+  /** @type {import("react").RefObject<HTMLDivElement | null>} */
   const stepRef = useRef(null);
   const registerStep = useScrollamaContext();
 

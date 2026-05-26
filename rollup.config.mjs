@@ -7,12 +7,19 @@ export default {
   input: "src/index.js",
   output: [
     {
-      file: "lib/index.js",
+      file: "lib/index.cjs",
       format: "cjs",
       sourcemap: true,
     },
     {
       file: "lib/index.esm.js",
+      format: "esm",
+      sourcemap: true,
+    },
+    // Legacy deep-import compatibility: under "type": "module", this .js file
+    // must be ESM. package.json routes require("./lib/index.js") to index.cjs.
+    {
+      file: "lib/index.js",
       format: "esm",
       sourcemap: true,
     },

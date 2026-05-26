@@ -2,6 +2,54 @@ import React, { useRef, useEffect, useCallback } from "react";
 import { ScrollamaContext } from "./scrollama-context";
 import scrollama from "scrollama";
 
+/**
+ * @typedef {object} ScrollamaInstance
+ * @property {(options: object) => ScrollamaInstance} setup
+ * @property {(callback: Function) => ScrollamaInstance} onStepEnter
+ * @property {(callback: Function) => ScrollamaInstance} onStepExit
+ * @property {(callback: Function) => ScrollamaInstance} onStepProgress
+ * @property {() => ScrollamaInstance} resize
+ * @property {() => ScrollamaInstance} destroy
+ */
+
+const createScrollama =
+  /** @type {() => ScrollamaInstance} */ (
+    /** @type {unknown} */ (scrollama)
+  );
+
+/**
+ * @typedef {object} StepCallbackResponse
+ * @property {HTMLElement} element
+ * @property {number} index
+ * @property {"up" | "down"} direction
+ */
+
+/**
+ * @typedef {object} StepProgressCallbackResponse
+ * @property {HTMLElement} element
+ * @property {number} index
+ * @property {number} progress
+ * @property {"up" | "down"} [direction]
+ */
+
+/**
+ * @typedef {import("react").HTMLAttributes<HTMLDivElement> & {
+ *   children?: import("react").ReactNode,
+ *   offset?: number | `${number}px`,
+ *   progress?: boolean,
+ *   debug?: boolean,
+ *   onStepEnter?: (response: StepCallbackResponse) => void,
+ *   onStepExit?: (response: StepCallbackResponse) => void,
+ *   onStepProgress?: (response: StepProgressCallbackResponse) => void,
+ *   threshold?: number,
+ *   once?: boolean,
+ *   parent?: HTMLElement | Document
+ * }} ScrollamaProps
+ */
+
+/**
+ * @param {ScrollamaProps} props
+ */
 const Scrollama = ({
   children,
   offset = 0.5,
@@ -21,7 +69,7 @@ const Scrollama = ({
 
   const getScroller = useCallback(() => {
     if (!scrollerRef.current) {
-      scrollerRef.current = scrollama();
+      scrollerRef.current = createScrollama();
     }
     return scrollerRef.current;
   }, []);
@@ -59,24 +107,30 @@ const Scrollama = ({
     hasSetupRef.current = true;
   }, [getScroller, offset, progress, debug, threshold, once, parent, onStepEnter, onStepExit, onStepProgress]);
 
-  const setupRef = useCallback((ref) => {
-    if (!ref || !ref.current) {
-      return undefined;
-    }
+  const setupRef = useCallback(
+    /**
+     * @param {import("react").RefObject<HTMLElement | null>} ref
+     */
+    (ref) => {
+      if (!ref || !ref.current) {
+        return undefined;
+      }
 
-    const element = ref.current;
+      const element = ref.current;
 
-    if (!stepsRef.current.includes(element)) {
-      stepsRef.current.push(element);
-    }
+      if (!stepsRef.current.includes(element)) {
+        stepsRef.current.push(element);
+      }
 
-    initialize();
-
-    return () => {
-      stepsRef.current = stepsRef.current.filter((step) => step !== element);
       initialize();
-    };
-  }, [initialize]);
+
+      return () => {
+        stepsRef.current = stepsRef.current.filter((step) => step !== element);
+        initialize();
+      };
+    },
+    [initialize]
+  );
 
   useEffect(() => {
     initialize();
